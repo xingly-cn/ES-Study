@@ -44,11 +44,13 @@ public class docInsertBatch {
 
         // 文档批量插入
         BulkRequest request = new BulkRequest();
-        request.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON,"name","李四"));
-        request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name","王五"));
-        request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name","赵大妈"));
-        request.add(new IndexRequest().index("user").id("1004").source(XContentType.JSON,"name","运费"));
-        request.add(new IndexRequest().index("user").id("1005").source(XContentType.JSON,"name","题目"));
+        request.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON,"name","李四","age",30,"sex","男"));
+        request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name","王五","age",30,"sex","女"));
+        request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name","大飞","age",40,"sex","男"));
+        request.add(new IndexRequest().index("user").id("1004").source(XContentType.JSON,"name","爽儿","age",40,"sex","女"));
+        request.add(new IndexRequest().index("user").id("1005").source(XContentType.JSON,"name","念哥","age",50,"sex","男"));
+        request.add(new IndexRequest().index("user").id("1006").source(XContentType.JSON,"name","肖哥","age",50,"sex","男"));
+
 
 
         BulkResponse response = client.bulk(request,RequestOptions.DEFAULT);
